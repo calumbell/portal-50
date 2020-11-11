@@ -12,3 +12,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16ff2e766ae364064bd1ae5ad696e24f, type: 3}
   m_Name: SpawnLocation
   m_EditorClassIdentifier: 
+  value: {x: -12, y: 13, z: -8}
