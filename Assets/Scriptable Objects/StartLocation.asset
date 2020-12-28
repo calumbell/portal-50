@@ -9,7 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7d86549948f2b4b2cab226adec128670, type: 3}
-  m_Name: TrampolineForce
+  m_Script: {fileID: 11500000, guid: 16ff2e766ae364064bd1ae5ad696e24f, type: 3}
+  m_Name: StartLocation
   m_EditorClassIdentifier: 
-  value: 60
+  value: {x: -12, y: 17, z: -8.000001}

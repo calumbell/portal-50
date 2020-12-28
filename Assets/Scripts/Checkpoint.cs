@@ -19,16 +19,15 @@ public class Checkpoint : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (!other.gameObject.CompareTag("Player"))
-            return;
+        if (!other.gameObject.CompareTag("Player")) return;
 
-        if (playerSpawnLocation.value == checkpointLocation)
-            return;
+        if (playerSpawnLocation.value == checkpointLocation) return;
 
         playerSpawnLocation.value = checkpointLocation;
 
-        if (OnCheckpointActivated != null)
-            OnCheckpointActivated();
+
+        if (OnCheckpointActivated != null) OnCheckpointActivated();
+        
     }
 }
 

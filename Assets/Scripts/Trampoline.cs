@@ -6,19 +6,20 @@ public class Trampoline : MonoBehaviour
 
     public FloatValue bounceForce;
 
+    private bool willBounce;
+
+    private void Start()
+    {
+        willBounce = true;
+    }
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Trigger Enter");
-        if (!other.gameObject.CompareTag("Player"))
-            return;
-        Debug.Log("Is tagged Player");
+        if (!other.gameObject.CompareTag("Player")) return;
 
         CharacterController controller = other.gameObject.GetComponent<CharacterController>();
+
         if (controller == null) return;
 
-        Debug.Log("Has Controller");
-
-        Debug.Log(bounceForce.value);
 
         StartCoroutine(BounceCoroutine(bounceForce.value, other.GetComponent<Rigidbody>().velocity, controller));
 
@@ -26,13 +27,15 @@ public class Trampoline : MonoBehaviour
 
     IEnumerator BounceCoroutine(float force, Vector3 velocity, CharacterController controller)
     {
+        // FPSController mvmt code is a little wonky bc it's rb is kinematic
+
         float currentForce = force;
 
         while (currentForce > 0)
         {
-            Vector3 move = new Vector3(velocity.x, currentForce, velocity.z) * Time.deltaTime;
+            Vector3 move = new Vector3(0, currentForce, 0) * Time.deltaTime;
             controller.Move(move);
-            currentForce -= 0.1f;
+            currentForce -= 0.6f;
             yield return null;
         }
     }

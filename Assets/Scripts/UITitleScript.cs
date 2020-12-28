@@ -18,8 +18,7 @@ public class UITitleScript : MonoBehaviour
 
     void CheckpointUpdateMessage()
     {
-        if (title == null)
-            return;
+        if (title == null)return;
 
         StartCoroutine(CheckpointUpdateMessageCoroutine());
     }
