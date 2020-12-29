@@ -25,7 +25,6 @@ public class Checkpoint : MonoBehaviour
 
         playerSpawnLocation.value = checkpointLocation;
 
-
         if (OnCheckpointActivated != null) OnCheckpointActivated();
         
     }

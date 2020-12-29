@@ -5,6 +5,9 @@ public class Respawn : MonoBehaviour
     public Vector3Value spawnPoint;
     public Vector3Value startPoint;
 
+    public delegate void RespawnAction();
+    public static event RespawnAction OnRespawn;
+
     private void Awake()
     {
         spawnPoint.value = startPoint.value;
@@ -13,9 +16,11 @@ public class Respawn : MonoBehaviour
 
     private void Update()
     {
-        if (transform.position.y < -10)
+        if (transform.position.y < spawnPoint.value.y - 15)
         {
             transform.position = spawnPoint.value;
+
+            if (OnRespawn != null) OnRespawn();
         }
     }
 }
