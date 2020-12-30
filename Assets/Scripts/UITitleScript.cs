@@ -55,17 +55,18 @@ public class UITitleScript : MonoBehaviour
     private IEnumerator GameOverMessageCoroutine()
     {
         title.enabled = true;
-        title.text = "Congradulations";
+        title.text = "Congradulations!";
         yield return new WaitForSeconds(2.5f);
-        title.text = "One more time, with feeling";
+        title.text = "One more time!";
         yield return new WaitForSeconds(2.5f);
         int countdown = 5;
         while (countdown > 0)
         {
-            title.text = (countdown.ToString());
+            title.text = countdown.ToString();
             countdown--;
             yield return new WaitForSeconds(1);
         }
+
         title.enabled = false;
     }
 }
